@@ -88,8 +88,7 @@ const MyNavbar = () => {
               className="mr-sm-2 col-4"
               value={search}
               onChange={(e) => {
-                setSearch(search);
-                setMovie(e.target.value);
+                setSearch(e.target.value);
               }}
             />
 
