@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import MyNavbar from "./components/MyNavbar";
 
+import MyTitle from "./components/MyTitle";
+import WatchIt from "./components/WatchIt";
+import MyFooter from "./components/MyFooter";
+import FilterBook from "./components/FilterBook";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import TvShows from "./components/TvShows";
+import MovieDetail from "./components/MovieDetail";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="ad">
+        <MyNavbar />
+
+        <Routes>
+          <Route
+            element={<WatchIt horror="2020" title="New Releases" />}
+            path="/"
+          />
+
+          <Route element={<TvShows />} path="/tv-shows" />
+          <Route element={<MovieDetail />} path="/moviedetail/:movieid" />
+        </Routes>
+        <MyFooter />
+      </div>
+    </BrowserRouter>
   );
 }
 
