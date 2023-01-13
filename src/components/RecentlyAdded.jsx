@@ -5,7 +5,7 @@ class RecentlyAdded extends Component {
     movie: [],
   };
 
-  fetchMovie = async () => {
+  /*fetchMovie = async () => {
     try {
       let response = await fetch(
         "https://benchmark-exam-2-week-backend-production.up.railway.app/medias"
@@ -27,11 +27,15 @@ class RecentlyAdded extends Component {
       console.log("error");
     }
   };
-
+*/
   componentDidMount() {
     console.log("component did mount");
-
-    this.fetchMovie();
+    async function fetchProducts() {
+      const apiUrl = process.env.REACT_APP_BE;
+      const resp = await fetch(`${apiUrl}/medias`);
+      const data = await resp.json();
+      this.setState({ movie: data });
+    }
   }
   render() {
     return (
