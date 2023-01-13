@@ -1,24 +1,23 @@
 import { Component } from "react";
-
-class FilterBook extends Component {
+import SingleMovie from "./SingleMovie";
+class RecentlyAdded extends Component {
   state = {
     movie: [],
-    search: this.props.search,
   };
 
   fetchMovie = async () => {
     try {
       let response = await fetch(
-        "http://www.omdbapi.com/?apikey=b5b46d60&s=movie"
+        "https://benchmark-exam-2-week-backend-production.up.railway.app/medias"
       );
       if (response.ok) {
         let data = await response.json();
         this.setState({
-          movie: data.Search,
-          search: this.props.search,
+          movie: data,
         });
         console.log("fetched!");
-        console.log(data.Search);
+        console.log(data);
+        console.log(this.state.movie);
         console.log(this.state.movie);
       } else {
         console.log("error fetching");
@@ -37,17 +36,13 @@ class FilterBook extends Component {
   render() {
     return (
       <div>
-        <h1>
-          {" "}
-          {this.state.movie
-            .filter((movie) => movie.Title.includes(this.props.search))
-            .map((filteredtitle) => (
-              <li>{filteredtitle.Title}</li>
-            ))}
-        </h1>
+        <h1>Added from my API</h1>
+        {this.state.movie.map((movie, i) => (
+          <SingleMovie movie={movie} key={i} />
+        ))}
       </div>
     );
   }
 }
 
-export default FilterBook;
+export default RecentlyAdded;

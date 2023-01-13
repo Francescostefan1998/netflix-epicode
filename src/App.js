@@ -9,6 +9,7 @@ import FilterBook from "./components/FilterBook";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TvShows from "./components/TvShows";
 import MovieDetail from "./components/MovieDetail";
+import RecentlyAdded from "./components/RecentlyAdded";
 function App() {
   return (
     <BrowserRouter>
@@ -23,6 +24,7 @@ function App() {
 
           <Route element={<TvShows />} path="/tv-shows" />
           <Route element={<MovieDetail />} path="/moviedetail/:movieid" />
+          <Route element={<RecentlyAdded />} path="/recentlyAdded" />
         </Routes>
         <MyFooter />
       </div>

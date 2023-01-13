@@ -74,7 +74,7 @@ const MyNavbar = () => {
             <Link to="/" className="navbar-links">
               <div>Movies</div>
             </Link>
-            <Link to="/" className="navbar-links">
+            <Link to="/recentlyAdded" className="navbar-links">
               <div>Recently Added</div>
             </Link>
             <Link to="/" className="navbar-links">
